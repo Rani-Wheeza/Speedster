@@ -21,11 +21,19 @@ public class HealthbarScript : MonoBehaviour
 
     public void SetHealth(int health)
     {
+        print("Adjusting health bar");
         slider.value = health;
 
         fill.color = gradient.Evaluate(slider.normalizedValue);
         
     }
 
-   
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+
+            slider.value -= 10;
+        }
+    }
+
 }

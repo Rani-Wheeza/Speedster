@@ -11,24 +11,26 @@ public class CityCarMovement : MonoBehaviour,IHealth
     public float accelation = 20;
     float turningSpeed = 45f;
     Rigidbody rb;
-    float health = 100;
-
+    int health = 100;
+    HealthbarScript carHealth;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        carHealth = FindObjectOfType<HealthbarScript>();
+        carHealth.SetHealth(health);
     }
 
-    public void takeDamage(float damageAmount)
+    public void takeDamage(int damageAmount)
     {
         health -= damageAmount;
+        carHealth.SetHealth(health);
         print(health);
     }
 
     // Update is called once per frame
     void Update()
     {
-        print (accelation);
         // Initialize movement direction to zero
         Vector3 moveDirection = Vector3.zero;
 

@@ -20,7 +20,7 @@ public class CollionsScript : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collied with: " + collision.gameObject.name);
-        carHealth.takeDamage(5f);
+        carHealth.takeDamage(2);
         //
         if (collision.gameObject.CompareTag("Obstacle"))
         {
