@@ -13,18 +13,22 @@ public class carmovementscript : MonoBehaviour, IHealth
     float accelation = 30;
     float turningSpeed = 45f;
     Rigidbody rb;
-    float health = 100;
+    int health = 100;
+    HealthbarScript carHealth;
 
-    public void takeDamage(float damageAmount)
+
+    public void takeDamage(int damageAmount)
     {
         health -= damageAmount;
+        carHealth.SetHealth(health);
         print(health);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-      
+        carHealth = FindObjectOfType<HealthbarScript>();
+        carHealth.SetHealth(health);
         rb = GetComponent<Rigidbody>();
     }
 

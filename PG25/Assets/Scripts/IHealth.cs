@@ -2,5 +2,5 @@
 
 interface IHealth 
 {
-    void takeDamage(float damageAmount);
+    void takeDamage(int damageAmount);
 }
