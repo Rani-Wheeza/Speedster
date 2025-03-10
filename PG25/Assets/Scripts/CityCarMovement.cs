@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using CodeMonkey.HealthSystemCM;
 using UnityEngine;
 
 public class CityCarMovement : MonoBehaviour,IHealth
@@ -13,12 +15,21 @@ public class CityCarMovement : MonoBehaviour,IHealth
     Rigidbody rb;
     int health = 100;
     HealthbarScript carHealth;
+    int currentHealth = 100;
+
+    //public float speed = 1500f; // Normal speed
+    public float maxSpeed = 200f; // Max speed limit
+    private float defaultSpeed;
+    private int maxHealth;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         carHealth = FindObjectOfType<HealthbarScript>();
         carHealth.SetHealth(health);
+        defaultSpeed = speed;
+        
     }
 
     public void takeDamage(int damageAmount)
@@ -26,6 +37,33 @@ public class CityCarMovement : MonoBehaviour,IHealth
         health -= damageAmount;
         carHealth.SetHealth(health);
         print(health);
+    }
+
+    /*public void RestoreHealth(float amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth; // Prevent overhealing
+        }
+
+        HealthbarScript.UpdateHealthBar(currentHealth, maxHealth); // Update UI if needed
+    }*/
+
+    public IEnumerator ActivateSpeedBoost(float boostAmount, float duration)
+    {
+        speed += boostAmount; // Increase speed
+        speed = Mathf.Clamp(speed, defaultSpeed, maxSpeed); // Keep speed within limit
+
+        yield return new WaitForSeconds(duration); // Wait for the boost duration
+
+        speed = defaultSpeed; // Reset to normal speed
+    }
+
+    private void FixedUpdate()
+    {
+        float move = Input.GetAxis("Vertical"); // Get player input
+        rb.AddForce(transform.forward * move * speed * Time.deltaTime, ForceMode.Acceleration);
     }
 
     // Update is called once per frame
@@ -60,5 +98,10 @@ public class CityCarMovement : MonoBehaviour,IHealth
         {
             transform.Rotate(Vector3.up, turningSpeed * Time.deltaTime);  // Turn right
         }
+    }
+
+    internal void RestoreHealth(int healthAmount)
+    {
+        throw new NotImplementedException();
     }
 }
