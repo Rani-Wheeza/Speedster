@@ -27,6 +27,15 @@ public class CollionsScript : MonoBehaviour
             Debug.Log("Car hit an obstacle!");
             //
         }
+
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            CityCarMovement health = GetComponent<CityCarMovement>();
+            if (health != null)
+            {
+                health.takeDamage(10); // Reduce HP when hitting obstacles
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
