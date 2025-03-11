@@ -19,26 +19,21 @@ public class CollionsScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collied with: " + collision.gameObject.name);
-        carHealth.takeDamage(2);
+
         //
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            Debug.Log("Car hit an obstacle!");
-            //
-        }
+
 
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            CityCarMovement health = GetComponent<CityCarMovement>();
-            if (health != null)
+            
+            if (carHealth != null)
             {
-                health.takeDamage(10); // Reduce HP when hitting obstacles
+                carHealth.takeDamage(2); // Reduce HP when hitting obstacles
             }
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    /*void OnTriggerEnter(Collider other)
     {
         Debug.Log("Triggered by: " + other.gameObject.name);
 
@@ -48,7 +43,7 @@ public class CollionsScript : MonoBehaviour
             Debug.Log("Checkpoint reached!");
             
         }
-    }
+    }*/
 
     
     
