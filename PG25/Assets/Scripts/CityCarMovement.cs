@@ -6,21 +6,22 @@ using UnityEngine;
 
 public class CityCarMovement : MonoBehaviour,IHealth
 {
-    float speed = 0f;
-    private float speedMultiplier = 0f;
-    private float accerationTime = 5f;
-    private float elapsedTime = 0f;
-    public float accelation = 20;
-    float turningSpeed = 45f;
+    public float speed = 1500f;
+    //private int speedMultiplier = 0;
+    //private int accerationTime = 5;
+    //private int elapsedTime = 0;
+    public float accelation = 20f;
+    int turningSpeed = 45;
     Rigidbody rb;
     int health = 100;
     HealthbarScript carHealth;
-    int currentHealth = 100;
+    //int currentHealth = 100;
 
     //public float speed = 1500f; // Normal speed
     public float maxSpeed = 200f; // Max speed limit
-    private float defaultSpeed;
-    private int maxHealth;
+    private float defaultAccelation;
+    private float maxHealth;
+    //private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ public class CityCarMovement : MonoBehaviour,IHealth
         rb = GetComponent<Rigidbody>();
         carHealth = FindObjectOfType<HealthbarScript>();
         carHealth.SetHealth(health);
-        defaultSpeed = speed;
+        defaultAccelation = speed;
         
     }
 
@@ -39,7 +40,14 @@ public class CityCarMovement : MonoBehaviour,IHealth
         print(health);
     }
 
-    /*public void RestoreHealth(float amount)
+    public void takeHealth(int healthAmount)
+    {
+        health += healthAmount;
+        carHealth.SetHealth(health);
+        print(health);
+    }
+
+    /*public void RestoreHealth(int amount)
     {
         currentHealth += amount;
         if (currentHealth > maxHealth)
@@ -52,12 +60,19 @@ public class CityCarMovement : MonoBehaviour,IHealth
 
     public IEnumerator ActivateSpeedBoost(float boostAmount, float duration)
     {
-        speed += boostAmount; // Increase speed
-        speed = Mathf.Clamp(speed, defaultSpeed, maxSpeed); // Keep speed within limit
+
+        Debug.Log("Speed boost activated. increse speed");
+
+        accelation += boostAmount; // Increase speed
+        //accelation = Mathf.Clamp(accelation, defaultSpeed, maxSpeed); // Keep speed within limit
+
+        //Debug.Log("New speed" + speed);
 
         yield return new WaitForSeconds(duration); // Wait for the boost duration
 
-        speed = defaultSpeed; // Reset to normal speed
+        Debug.Log("Speed boost ended. resetting speed");
+
+        accelation = defaultAccelation; // Reset to normal speed
     }
 
     private void FixedUpdate()

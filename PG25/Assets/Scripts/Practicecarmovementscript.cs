@@ -6,10 +6,10 @@ using UnityEngine.EventSystems;
 public class carmovementscript : MonoBehaviour, IHealth
 {
 
-    float speed = 0f;
-    private float speedMultiplier = 0f;
-    private float accerationTime = 5f;
-    private float elapsedTime = 0f;
+    //float speed = 0f;
+    //private float speedMultiplier = 0f;
+    //private float accerationTime = 5f;
+   // private float elapsedTime = 0f;
     float accelation = 30;
     float turningSpeed = 45f;
     Rigidbody rb;
@@ -20,6 +20,13 @@ public class carmovementscript : MonoBehaviour, IHealth
     public void takeDamage(int damageAmount)
     {
         health -= damageAmount;
+        carHealth.SetHealth(health);
+        print(health);
+    }
+
+    public void takeHealth(int healthAmount)
+    {
+        health += healthAmount;
         carHealth.SetHealth(health);
         print(health);
     }

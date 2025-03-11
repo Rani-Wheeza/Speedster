@@ -5,18 +5,31 @@ using UnityEngine;
 public class SpeedBoostScript : MonoBehaviour
 {
 
-    public float boostAmount = 50f;  // How much speed is added
-    public float boostDuration = 3f; // How long the boost lasts
+    public float boostAmount = 50f;  // speed added
+    public float boostDuration = 5f; // duration of boost
 
     private void OnTriggerEnter(Collider other)
     {
+
+        Debug.Log("Object Entered speed booster: " + other.name);
+
         if (other.CompareTag("Car")) // Make sure your car has the tag "Car"
         {
+            Debug.Log("Speed Booster activated");
+
             CityCarMovement car = other.GetComponent<CityCarMovement>();
             if (car != null)
             {
+                Debug.Log("Car Found! Applying boost..");
                 StartCoroutine(car.ActivateSpeedBoost(boostAmount, boostDuration));
             }
+
+            else
+            {
+                Debug.Log("Collied with something else " + other.name);
+            }
+
+            Destroy(gameObject); // Remove power-up after collection
         }
     }
 
@@ -34,7 +47,7 @@ public class SpeedBoostScript : MonoBehaviour
                 StartCoroutine(player.SpeedBoost(duration, speedBoostAmount));
             }
 
-            Destroy(gameObject); // Remove power-up after collection
+            
         }
     }*/
 }
