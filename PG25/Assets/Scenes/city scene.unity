@@ -233,8 +233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f6fd333a0ccb1498ca6781baa99a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostAmount: 50
-  boostDuration: 5
 --- !u!1 &359377112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2386662395858564746, guid: 7bbeaccec1f28c24b99beb4b12a75fed, type: 3}
@@ -252,7 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2040c38eabed2354592cc2d9ff4b990c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 20
 --- !u!1 &420737150 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7003139494988375738, guid: 7bbeaccec1f28c24b99beb4b12a75fed, type: 3}
@@ -270,7 +267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2040c38eabed2354592cc2d9ff4b990c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 20
 --- !u!1 &481756627 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8989077168348770296, guid: 1795fc95e36bb644d88a0196b4961987, type: 3}
@@ -331,7 +327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2040c38eabed2354592cc2d9ff4b990c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 20
 --- !u!1 &690333833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4611139450086408362, guid: b8ec9f15a91a80c48bc50ff85b8cafae, type: 3}
@@ -349,8 +344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f6fd333a0ccb1498ca6781baa99a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostAmount: 50
-  boostDuration: 5
 --- !u!224 &753156181 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4240193513860198766, guid: 06129b2148fef68458e469f0a36c5d34, type: 3}
@@ -384,8 +377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f6fd333a0ccb1498ca6781baa99a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostAmount: 50
-  boostDuration: 5
 --- !u!1 &876144816 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7746374045831292952, guid: 8d3b10195f23cae41bb195a2ef44e7b1, type: 3}
@@ -429,7 +420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2040c38eabed2354592cc2d9ff4b990c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 20
 --- !u!1 &1069706714 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 566169880085872032, guid: b8ec9f15a91a80c48bc50ff85b8cafae, type: 3}
@@ -447,8 +437,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f6fd333a0ccb1498ca6781baa99a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostAmount: 50
-  boostDuration: 5
 --- !u!135 &1069706719
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -487,9 +475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ebb41094f526a4fbb2d7e1ba9dfce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  accelation: 20
-  maxSpeed: 200
 --- !u!114 &1114803526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,7 +698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1745205452637579217, guid: 1795fc95e36bb644d88a0196b4961987, type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6129260821750808673, guid: 1795fc95e36bb644d88a0196b4961987, type: 3}
       propertyPath: m_Layer
@@ -1150,7 +1135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2040c38eabed2354592cc2d9ff4b990c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 20
 --- !u!1 &1798829872 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7399974024268209081, guid: f7e803f8c9880294fb8b5a5a5f27e1d3, type: 3}
@@ -1293,7 +1277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7399974024268209081, guid: f7e803f8c9880294fb8b5a5a5f27e1d3, type: 3}
       propertyPath: m_Name
-      value: PowerDown
+      value: SpeedDown
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

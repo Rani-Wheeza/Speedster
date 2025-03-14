@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,6 +37,11 @@ public class CarHealth : MonoBehaviour
         {
             healthBar.value = currentHealth / maxHealth;
         }
+    }
+
+    internal void RestoreHealth(int healthAmount)
+    {
+        throw new NotImplementedException();
     }
 }
 
