@@ -22,7 +22,7 @@ public class HealthbarScript : MonoBehaviour
 
     public void SetHealth(int health)
     {
-        print("Adjusting health bar");
+        //print("Adjusting health bar");
         slider.value = health;
 
         fill.color = gradient.Evaluate(slider.normalizedValue);
@@ -38,6 +38,11 @@ public class HealthbarScript : MonoBehaviour
     }
 
     internal static void UpdateHealthBar(int currentHealth, int maxHealth)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal static void UpdateHealthBar(int currentHealth, float maxHealth)
     {
         throw new NotImplementedException();
     }
