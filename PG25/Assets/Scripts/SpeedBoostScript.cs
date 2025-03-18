@@ -31,20 +31,5 @@ public class SpeedBoostScript : MonoBehaviour
     }
 
 
-    //public float speedBoostAmount = 5f; // Adjust speed boost value
-    //public float duration = 5f; // Power-up lasts 5 seconds
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("car")) // Check if player collects the power-up
-        {
-            CityCarMovement player = other.GetComponent<CityCarMovement>();
-            if (player != null)
-            {
-                StartCoroutine(player.SpeedBoost(duration, speedBoostAmount));
-            }
-
-            
-        }
-    }*/
+    
 }

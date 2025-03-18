@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CarHealth : MonoBehaviour
 {
-    public float maxHealth = 100f;
+    /*public float maxHealth = 100f;
     public float currentHealth;
     public Slider healthBar;
 
@@ -42,6 +42,6 @@ public class CarHealth : MonoBehaviour
     internal void RestoreHealth(int healthAmount)
     {
         throw new NotImplementedException();
-    }
+    }*/
 }
 

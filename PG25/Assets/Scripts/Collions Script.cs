@@ -19,10 +19,8 @@ public class CollionsScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-
-        //
-
-
+        print("Damage");
+        
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             
@@ -31,6 +29,14 @@ public class CollionsScript : MonoBehaviour
                 carHealth.takeDamage(2); // Reduce HP when hitting obstacles
             }
         }
+
+        /*if (collision.gameObject.CompareTag("Boost"))
+        {
+            if(carHealth == null)
+            {
+                carHealth.takeHealth(5);
+            }
+        }*/
     }
 
     /*void OnTriggerEnter(Collider other)
