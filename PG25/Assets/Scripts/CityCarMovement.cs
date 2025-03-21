@@ -8,7 +8,7 @@ using UnityEngine;
 public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the script for health
 {
     float speed = 0f;
-    float accelation = 20f;
+    float accelaration = 20f;
     float deceleration = 20f;
     int turningSpeed = 45;
     Rigidbody rb;
@@ -18,7 +18,7 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
 
     
     float maxSpeed = 200f; // Max speed limit
-    private float defaultAccelation;
+    private float defaultAccelaration;
     private float defaultDeceleration;
     private int maxHealth;
     //private int currentHealth;
@@ -30,8 +30,8 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
         rb = GetComponent<Rigidbody>();
         carHealth = FindObjectOfType<HealthbarScript>();
         carHealth.SetHealth(health);
-        defaultAccelation = accelation;
-        defaultDeceleration = deceleration;
+        defaultAccelaration = accelaration;
+        defaultDeceleration = accelaration;
 
 
     }
@@ -81,7 +81,7 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
 
         Debug.Log("Speed boost activated. increse speed");
 
-        accelation += boostAmount; // Increase speed
+        accelaration += boostAmount; // Increase speed
         //accelation = Mathf.Clamp(accelation, defaultSpeed, maxSpeed); // Keep speed within limit
 
         //Debug.Log("New speed" + speed);
@@ -90,7 +90,7 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
 
         Debug.Log("Speed boost ended. resetting speed");
 
-        accelation = defaultAccelation; // Reset to normal speed
+        accelaration = defaultAccelaration; // Reset to normal speed
     }
 
     //decrease speed
@@ -99,8 +99,8 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
 
         Debug.Log("Decrease speed boost activated. decrease speed");
 
-        deceleration += decreaseAmount; // Decrease speed
-        //accelation = Mathf.Clamp(accelation, defaultSpeed, maxSpeed); // Keep speed within limit
+        accelaration -= decreaseAmount; // Decrease speed
+       accelaration = Mathf.Clamp(accelaration, 10, maxSpeed); // Keep speed within limit
 
         //Debug.Log("New speed" + speed);
 
@@ -108,13 +108,13 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
 
         Debug.Log("Decrease speed boost ended. resetting speed");
 
-        deceleration = defaultDeceleration; // Reset to normal speed
+        accelaration = defaultAccelaration; // Reset to normal speed
     }
 
     private void FixedUpdate()
     {
         float move = Input.GetAxis("Vertical"); // Get player input
-        rb.AddForce(transform.forward * move * accelation * Time.deltaTime, ForceMode.Acceleration);
+        rb.AddForce(transform.forward * move * accelaration * Time.deltaTime, ForceMode.Acceleration);
     }
 
     // Update is called once per frame
@@ -125,11 +125,11 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            rb.AddForce(accelation * transform.forward);
+            rb.AddForce(accelaration * transform.forward);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            rb.AddForce(-accelation * transform.forward);
+            rb.AddForce(-accelaration * transform.forward);
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))

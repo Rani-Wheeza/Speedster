@@ -6,7 +6,7 @@ public class HealthPowerUp : MonoBehaviour
 {
    
     //int healthAmount = 20; // How much health it restores
-    public int healthIncrease = 20; // Add amount to health
+    public int healthIncrease = 10; // Add amount to health
     private bool isCollected = false; //to private multiple triggers
 
     private void OnTriggerEnter(Collider other)
