@@ -8,7 +8,7 @@ using UnityEngine;
 public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the script for health
 {
     float speed = 0f;
-    float accelaration = 20f;
+    float accelaration = 40f;
     float deceleration = 20f;
     int turningSpeed = 45;
     Rigidbody rb;

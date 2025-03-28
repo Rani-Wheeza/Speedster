@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedDown : MonoBehaviour
+public class SpeedDown : BoosterBase
 {
 
     float decreaseAmount = 30f;  // speed reduced
@@ -25,8 +25,11 @@ public class SpeedDown : MonoBehaviour
 
             }
 
+           
 
             Destroy(gameObject); // Remove power-up after collection
+
+            manager.respawnMe(transform.position);
         }
     }
 
