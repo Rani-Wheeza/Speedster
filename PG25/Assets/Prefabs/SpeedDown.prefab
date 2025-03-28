@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 78889737610855359}
   - component: {fileID: 3000347953526447642}
   - component: {fileID: 337047485609642207}
+  - component: {fileID: 3687616980642907138}
   m_Layer: 0
   m_Name: SpeedDown
   m_TagString: Untagged
@@ -63,12 +64,26 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3687616980642907138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957393783201861241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d81cc4a7694b6548b26e04b8efd1b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 65
+  reverse: 0
 --- !u!1 &8328151981031075708
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +95,6 @@ GameObject:
   - component: {fileID: 3502496506780912777}
   - component: {fileID: 9121363739023076895}
   - component: {fileID: 4243727177232537527}
-  - component: {fileID: 6374575011048152443}
   m_Layer: 0
   m_Name: InnerPowerUp
   m_TagString: Untagged
@@ -153,20 +167,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6374575011048152443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8328151981031075708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d81cc4a7694b6548b26e04b8efd1b3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 65
-  reverse: 1
 --- !u!1 &8644249795691666393
 GameObject:
   m_ObjectHideFlags: 0
@@ -5002,7 +5002,6 @@ GameObject:
   - component: {fileID: 2735561564062359492}
   - component: {fileID: 1837064387554442303}
   - component: {fileID: 3732947183231191021}
-  - component: {fileID: 4374359200018186557}
   m_Layer: 0
   m_Name: PowerUp
   m_TagString: Untagged
@@ -5075,17 +5074,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4374359200018186557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9082088761634384545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d81cc4a7694b6548b26e04b8efd1b3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 65
-  reverse: 0

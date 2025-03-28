@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPowerUp : MonoBehaviour
+public class HealthPowerUp : BoosterBase
 {
    
     //int healthAmount = 20; // How much health it restores
@@ -18,7 +18,11 @@ public class HealthPowerUp : MonoBehaviour
             {
                 carHealth.takeHealth(healthIncrease);
                 isCollected = true;
+               
+
                 Destroy(gameObject); //Remove the power-up object
+
+                manager.respawnMe(transform.position);
             }
         }
     }

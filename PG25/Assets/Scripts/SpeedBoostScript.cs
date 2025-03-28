@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedBoostScript : MonoBehaviour
+public class SpeedBoostScript : BoosterBase
 {
 
     float boostAmount = 30f;  // speed added
@@ -25,8 +25,11 @@ public class SpeedBoostScript : MonoBehaviour
                
             }
 
+           
             
             Destroy(gameObject); // Remove power-up after collection
+
+            manager.respawnMe(transform.position);
         }
     }
 
