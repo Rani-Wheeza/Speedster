@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.ConstrainedExecution;
-using CodeMonkey.HealthSystemCM;
 using UnityEngine;
 
-public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the script for health
+public class MountainCAr : MonoBehaviour, IHealth
 {
+
     float speed = 0f;
     float accelaration = 30f;
     //float deceleration = 20f;
@@ -16,16 +14,16 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
     HealthbarScript carHealth;
     int currentHealth;
 
-    
+
     float maxSpeed = 200f; // Max speed limit
     private float defaultAccelaration;
     private float defaultDeceleration;
     private int maxHealth;
     //private int currentHealth;
 
-    
     // Start is called before the first frame update
-    void Start()
+    // Start is called before the first frame update
+    /*void Start()
     {
         rb = GetComponent<Rigidbody>();
         carHealth = FindObjectOfType<HealthbarScript>();
@@ -33,14 +31,13 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
         defaultAccelaration = accelaration;
         defaultDeceleration = accelaration;
 
-
-    }
+    */
 
     public void takeDamage(int damageAmount)
     {
         health -= damageAmount;
         carHealth.SetHealth(health);
-       
+
     }
 
     public void IncreaseHealth(int amount)
@@ -48,7 +45,7 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
         currentHealth += amount;
         //currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        if(currentHealth > maxHealth)
+        if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }
@@ -59,20 +56,8 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
     {
         health += healthAmount;
         carHealth.SetHealth(health);
-        
+
     }
-
-    /*//increase health
-    public void RestoreHealth(int healthAmount)
-    {
-        currentHealth += healthAmount;
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = (int)maxHealth; // Prevent overhealing
-        }
-
-        HealthbarScript.UpdateHealthBar(currentHealth, maxHealth); // Update UI if needed
-    }*/
 
 
     //increase speed
@@ -100,7 +85,7 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
         Debug.Log("Decrease speed boost activated. decrease speed");
 
         accelaration -= decreaseAmount; // Decrease speed
-       accelaration = Mathf.Clamp(accelaration, 10, maxSpeed); // Keep speed within limit
+        accelaration = Mathf.Clamp(accelaration, 10, maxSpeed); // Keep speed within limit
 
         //Debug.Log("New speed" + speed);
 
@@ -161,7 +146,4 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
     {
         StartCoroutine(ActivateSpeedDown(decreaseAmount, boostDuration));
     }
-
-
-   
 }
