@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MountainCAr : MonoBehaviour, IHealth
+public class MountainCAr : MonoBehaviour//, IHealth
 {
 
     float speed = 0f;
@@ -23,17 +23,17 @@ public class MountainCAr : MonoBehaviour, IHealth
 
     // Start is called before the first frame update
     // Start is called before the first frame update
-    /*void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
-        carHealth = FindObjectOfType<HealthbarScript>();
-        carHealth.SetHealth(health);
+       // carHealth = FindObjectOfType<HealthbarScript>();
+        //carHealth.SetHealth(health);
         defaultAccelaration = accelaration;
         defaultDeceleration = accelaration;
 
-    */
+    }
 
-    public void takeDamage(int damageAmount)
+    /*public void takeDamage(int damageAmount)
     {
         health -= damageAmount;
         carHealth.SetHealth(health);
@@ -57,11 +57,11 @@ public class MountainCAr : MonoBehaviour, IHealth
         health += healthAmount;
         carHealth.SetHealth(health);
 
-    }
+    }*/
 
 
     //increase speed
-    public IEnumerator ActivateSpeedBoost(float boostAmount, float duration)
+    /*public IEnumerator ActivateSpeedBoost(float boostAmount, float duration)
     {
 
         Debug.Log("Speed boost activated. increse speed");
@@ -76,10 +76,10 @@ public class MountainCAr : MonoBehaviour, IHealth
         Debug.Log("Speed boost ended. resetting speed");
 
         accelaration = defaultAccelaration; // Reset to normal speed
-    }
+    }*/
 
     //decrease speed
-    public IEnumerator ActivateSpeedDown(float decreaseAmount, float duration)
+    /*public IEnumerator ActivateSpeedDown(float decreaseAmount, float duration)
     {
 
         Debug.Log("Decrease speed boost activated. decrease speed");
@@ -94,13 +94,13 @@ public class MountainCAr : MonoBehaviour, IHealth
         Debug.Log("Decrease speed boost ended. resetting speed");
 
         accelaration = defaultAccelaration; // Reset to normal speed
-    }
+    }*/
 
-    private void FixedUpdate()
+   /* private void FixedUpdate()
     {
         float move = Input.GetAxis("Vertical"); // Get player input
         rb.AddForce(transform.forward * move * accelaration * Time.deltaTime, ForceMode.Acceleration);
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
@@ -136,7 +136,7 @@ public class MountainCAr : MonoBehaviour, IHealth
         }
     }
 
-    internal void ApplyBoost(float boostAmount, float boostDuration)
+    /*internal void ApplyBoost(float boostAmount, float boostDuration)
     {
         StartCoroutine(ActivateSpeedBoost(boostAmount, boostDuration));
     }
@@ -145,5 +145,5 @@ public class MountainCAr : MonoBehaviour, IHealth
     internal void ApplyDecrease(float decreaseAmount, float boostDuration)
     {
         StartCoroutine(ActivateSpeedDown(decreaseAmount, boostDuration));
-    }
+    }*/
 }
