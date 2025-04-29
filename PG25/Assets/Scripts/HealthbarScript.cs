@@ -31,10 +31,12 @@ public class HealthbarScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
 
             slider.value -= 10;
         }
+
     }
 
     internal static void UpdateHealthBar(int currentHealth, int maxHealth)

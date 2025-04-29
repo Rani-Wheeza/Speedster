@@ -28,26 +28,4 @@ public class HealthPowerUp : BoosterBase
     }
 
 
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Object Entered health booster: " + other.name);
-
-        if (other.CompareTag("Car")) // Make sure the car has the tag "Car"
-        {
-            Debug.Log("Speed Booster activated");
-
-            CityCarMovement carHealth = other.GetComponent<CityCarMovement>();
-
-            if (carHealth != null)
-            {
-                Debug.Log("Car Found! Applying boost..");
-                carHealth.RestoreHealth(healthAmount);
-
-                
-            }
-
-            Destroy(gameObject); // Remove the power-up after collection
-        }
-    }*/
 }
