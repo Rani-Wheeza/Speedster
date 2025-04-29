@@ -23,7 +23,9 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
     private int maxHealth;
     //private int currentHealth;
 
-    
+    private bool isDead;
+
+    public GameManagerScript gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,21 +61,19 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
     {
         health += healthAmount;
         carHealth.SetHealth(health);
-        
-    }
 
-    /*//increase health
-    public void RestoreHealth(int healthAmount)
-    {
-        currentHealth += healthAmount;
-        if (currentHealth > maxHealth)
+
+        if (health <= 0 && !isDead)
         {
-            currentHealth = (int)maxHealth; // Prevent overhealing
+            isDead = true;
+            //gameObject.SetActive(false);//This is to make the game ogject to disappear after the game has eneded.
+            gameManager.gameOver();
+            Debug.Log("Dead");
         }
 
-        HealthbarScript.UpdateHealthBar(currentHealth, maxHealth); // Update UI if needed
-    }*/
+    }
 
+ 
 
     //increase speed
     public IEnumerator ActivateSpeedBoost(float boostAmount, float duration)
@@ -149,7 +149,11 @@ public class CityCarMovement : MonoBehaviour,IHealth //use to refrence the scrip
         {
             transform.Rotate(Vector3.up, turningSpeed * Time.deltaTime);  // Turn right
         }
-    }
+
+        
+
+    
+}
 
     internal void ApplyBoost(float boostAmount, float boostDuration)
     {
